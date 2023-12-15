@@ -6,5 +6,5 @@
 # Default server host and port and dictionary
 DEFAULT_HOST = "localhost"
 DEFAULT_PORT = 60604
-DEFAULT_DICT = 'dicts/de-mixed.dic'
+DEFAULT_DICT = 'dicts/nl.NL.dic'
 DE_MISC_DICT = 'dicts/de-misc.dic'

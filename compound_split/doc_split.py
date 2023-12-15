@@ -93,15 +93,17 @@ def load_known_words(de_dict=doc_config.DEFAULT_DICT, de_misc=True):
     if de_dict is None:
         de_dict = doc_config.DEFAULT_DICT
     load_dict(de_dict)
-    if de_misc:
-        load_dict(doc_config.DE_MISC_DICT)
+    # if de_misc:
+    #     load_dict(doc_config.DE_MISC_DICT)
     # print('%d known words loaded\n' % (len(KNOWN_WORDS)), file=sys.stderr)
     logger.info('%d known words loaded', len(KNOWN_WORDS))
 
 
-def load_dict(de_dict):
-    data = pkgutil.get_data(__name__, de_dict).decode('utf-8')
-    for word in data:
+def load_dict(dict_path):
+    data = open(dict_path, 'rb').read()
+    data = data.decode('utf-8')
+    words = data.split("\n")
+    for word in words:
         if not (word == '' or word.startswith('#')):
             KNOWN_WORDS.add(word.strip())
 
